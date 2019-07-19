@@ -10,4 +10,4 @@ install:
   - cp ./logging.json ~/.senseo-api/
   - cp ./senseo_config.json ~/.senseo-api/
 script:
-  - senseo-api
+  - which senseo-api # only test if ready to be used
