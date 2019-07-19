@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+install:
+  - pip install -e .
+  - mkdir -p ~/.senseo-api
+  - cp ./logging.json ~/.senseo-api/
+  - cp ./senseo_config.json ~/.senseo-api/
+script:
+  - senseo-api
