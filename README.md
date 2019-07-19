@@ -94,3 +94,7 @@ Commands:
 ```
 
 > **Warning:** If you want to use the simulator with `read` commande, run it before the `senseo-api`. If needed to restart it, stop `senseo-api`, run the simulator, start the `senseo-api` again.
+
+## Trademark
+
+*Senseo* is a registered trademark of *Philips* and *Douwe Egberts*.
