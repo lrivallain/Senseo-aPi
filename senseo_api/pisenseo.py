@@ -61,10 +61,10 @@ class SenseoClassic():
         GPIO.setup(self.one_mug_button, GPIO.OUT)
         GPIO.setup(self.double_mug_button, GPIO.OUT)
         GPIO.setup(self.led, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-        # Default state is off everywhere
-        GPIO.output(self.power_button, GPIO.LOW)
-        GPIO.output(self.one_mug_button, GPIO.LOW)
-        GPIO.output(self.double_mug_button, GPIO.LOW)
+        # Default state is HIGH everywhere (unpressed for buttons)
+        GPIO.output(self.power_button, GPIO.HIGH)
+        GPIO.output(self.one_mug_button, GPIO.HIGH)
+        GPIO.output(self.double_mug_button, GPIO.HIGH)
         logger.info("Coffee machine setup is ready")
 
     def is_led_on(self):
@@ -125,9 +125,9 @@ class SenseoClassic():
             button (gpiozero.LED): Button to press
         """
         logger.info(f"Pressing a button for {PRESS_DELAY}s.")
-        GPIO.output(button, GPIO.HIGH) # press button
+        GPIO.output(button, GPIO.LOW) # press button
         sleep(PRESS_DELAY)
-        GPIO.output(button, GPIO.LOW) # unpress
+        GPIO.output(button, GPIO.HIGH) # unpress
         logger.debug(f"Button was successfully pressed.")
 
 
