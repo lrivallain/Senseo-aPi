@@ -1,6 +1,6 @@
 """Senseo coffee machine API.
 
-.. moduleauthor:: Ludovic Rivallain <ludovic.rivalain@gmail.cpù>
+.. moduleauthor:: Ludovic Rivallain <ludovic.rivallain+senseo -> gmail.com>
 
 """
 
