@@ -1,6 +1,8 @@
 # Senseo APi
 
 [![Build Status](https://travis-ci.org/lrivallain/Senseo-aPi.svg?branch=master)](https://travis-ci.org/lrivallain/Senseo-aPi)
+[![Documentation Status](https://readthedocs.org/projects/senseo-api/badge/?version=latest)](https://senseo-api.readthedocs.io/en/latest/?badge=latest)
+![GitHub](https://img.shields.io/github/license/lrivallain/senseo-api)
 
 This module aims to provide a simple way to manage a Senseo Coffee machine through a Raspberry Pi's GPIO and a REST API.
 
