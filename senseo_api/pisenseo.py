@@ -21,7 +21,13 @@ GPIO.setmode(GPIO.BCM)
 class SenseoPreconditionError(Exception):
     """Define a specific error for non-readyness coffee machine.
     """
-    def __init__(self, message):
+
+    def __init__(self, message: str):
+        """Initialize the execption.
+
+        Args:
+            message (str): Message to raise with error.
+        """
         self.message = message
         # Call the base class constructor with the parameters it needs
         super(SenseoPreconditionError, self).__init__(message)
@@ -31,7 +37,13 @@ class SenseoPreconditionError(Exception):
 class SenseoCoffeeSizeError(Exception):
     """Define a specific error for invalid coffee size.
     """
+
     def __init__(self, size):
+        """Initialize the execption.
+
+        Args:
+            message (str): Message to raise with error.
+        """
         self.message = f"Invalid coffee size requested: {size}. Only 1 or 2 are accepted."
         # Call the base class constructor with the parameters it needs
         super(SenseoCoffeeSizeError, self).__init__(self.message)
@@ -44,7 +56,12 @@ class SenseoClassic():
     May works on other kind of Senseo machine but not tested.
     """
 
-    def __init__(self, config_file):
+    def __init__(self, config_file: str):
+        """Initialize the SenseoClassic object.
+
+        Args:
+            config_file (str): Path to the json config file.
+        """
         with open(os.path.expanduser(config_file), "r", encoding="utf-8") as fd:
             self.gpio_setup = json.load(fd)
         # Map GPIO pin configuration for in/out
@@ -118,11 +135,11 @@ class SenseoClassic():
         return True
 
 
-    def single_press(self, button):
-        """Press a specific button for a short period
+    def single_press(self, button: int):
+        """Press a specific button for a short period.
 
         Args:
-            button (gpiozero.LED): Button to press
+            button (int): Button to press
         """
         logger.info(f"Pressing a button for {PRESS_DELAY}s.")
         GPIO.output(button, GPIO.HIGH) # press button
@@ -132,7 +149,7 @@ class SenseoClassic():
 
 
     def start(self):
-        """Power on the Senseo
+        """Power on the Senseo.
         """
         logger.debug("Powering on is requested")
         if not self.is_powered_on():
@@ -142,7 +159,7 @@ class SenseoClassic():
 
 
     def stop(self):
-        """Power off the Senseo
+        """Power off the Senseo.
         """
         logger.debug("Powering off is requested")
         if self.is_powered_on():
@@ -151,8 +168,8 @@ class SenseoClassic():
         return
 
 
-    def coffee(self, size):
-        """Start a coffee run according the selected number of vmug
+    def coffee(self, size: int):
+        """Start a coffee run according the selected number of mugs.
 
         Args:
             size (integer): Number of mug selected. 1 or 2.
