@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>senseo_api.__main__ &mdash; senseo-aPi 1.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> senseo-aPi
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../subindex.html">Senseo APi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../subindex.html#installation-proccess">Installation proccess</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../subindex.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../subindex.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../subindex.html#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../subindex.html#id1">Senseo API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../subindex.html#senseo-simulator">Senseo Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../subindex.html#trademark">Trademark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../senseo_api.html">Module reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../senseo_api.html#module-senseo_api.__main__">main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../senseo_api.html#module-senseo_api.pisenseo">pisenseo</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">senseo-aPi</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>senseo_api.__main__</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for senseo_api.__main__</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">flask_restplus</span> <span class="k">import</span> <span class="n">Api</span><span class="p">,</span> <span class="n">Resource</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">abort</span>
+<span class="kn">from</span> <span class="nn">.pisenseo</span> <span class="k">import</span> <span class="n">SenseoClassic</span><span class="p">,</span> <span class="n">SenseoPreconditionError</span><span class="p">,</span> <span class="n">SenseoCoffeeSizeError</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">init_logger</span>
+
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">SWAGGER_UI_DOC_EXPANSION</span> <span class="o">=</span> <span class="s1">&#39;list&#39;</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">SWAGGER_UI_OPERATION_ID</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">SWAGGER_UI_REQUEST_DURATION</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">Api</span><span class="p">(</span>
+    <span class="n">app</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Senseo APi&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Manage Senseo coffee machine through Raspberry Pi GPIO&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ns_cm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">namespace</span><span class="p">(</span><span class="s1">&#39;senseo&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Senseo coffee machine operations&#39;</span><span class="p">)</span>
+<span class="n">ns_coffee</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">namespace</span><span class="p">(</span><span class="s1">&#39;coffee&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Coffee operations&#39;</span><span class="p">)</span>
+
+<span class="c1"># Will be used by a global</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="c1"># describe models</span>
+<span class="n">machine_status</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;Machine Status&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;is_powered_on&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span>
+        <span class="n">readOnly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Is the coffee machine powered on?&#39;</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;is_ready&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span>
+        <span class="n">readOnly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Is the coffee machine ready to start a coffee?&#39;</span>
+    <span class="p">)</span>
+<span class="p">})</span>
+<span class="n">machine_power_op</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">model</span><span class="p">(</span>
+    <span class="s1">&#39;Machine power operation&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;power_on&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Start or stop coffee machine.&#39;</span>
+    <span class="p">)</span>
+<span class="p">})</span>
+<span class="n">coffee_request</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;Start a coffee&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Size of the requested coffeee (1 or 2 mug)&#39;</span><span class="p">,</span>
+        <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="nb">max</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">example</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+<span class="p">})</span>
+<span class="n">message_op</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;Response message regarding the current request&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Description of the response made to the request.&#39;</span>
+    <span class="p">)</span>
+<span class="p">})</span>
+
+<div class="viewcode-block" id="CoffeeMachine"><a class="viewcode-back" href="../../senseo_api.html#senseo_api.__main__.CoffeeMachine">[docs]</a><span class="nd">@ns_cm</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">CoffeeMachine</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Set and get power status for the coffee machine.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="CoffeeMachine.get"><a class="viewcode-back" href="../../senseo_api.html#senseo_api.__main__.CoffeeMachine.get">[docs]</a>    <span class="nd">@ns_cm</span><span class="o">.</span><span class="n">marshal_with</span><span class="p">(</span><span class="n">machine_status</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the current status of the coffee machine.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Current status of coffee machine is requested&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;is_powered_on&#39;</span><span class="p">:</span> <span class="n">cm</span><span class="o">.</span><span class="n">is_powered_on</span><span class="p">(),</span>
+            <span class="s1">&#39;is_ready&#39;</span><span class="p">:</span> <span class="n">cm</span><span class="o">.</span><span class="n">is_ready</span><span class="p">()</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="CoffeeMachine.post"><a class="viewcode-back" href="../../senseo_api.html#senseo_api.__main__.CoffeeMachine.post">[docs]</a>    <span class="nd">@ns_cm</span><span class="o">.</span><span class="n">marshal_with</span><span class="p">(</span><span class="n">message_op</span><span class="p">)</span>
+    <span class="nd">@ns_cm</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="n">machine_power_op</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update the power state of the coffee machine.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">req_status</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;power_on&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># default is shutdown command</span>
+        <span class="n">cur_status</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">is_powered_on</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Update of power status of the coffe machine is requested.&quot;</span><span class="p">)</span>
+        <span class="c1"># Require powered on and currently powered off</span>
+        <span class="k">if</span> <span class="n">req_status</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">cur_status</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Start requested&quot;</span><span class="p">)</span>
+            <span class="n">cm</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Powering on...&quot;</span><span class="p">}</span>
+        <span class="c1"># Require powered off and currently powered on</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">req_status</span> <span class="ow">and</span> <span class="n">cur_status</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Stop requested&quot;</span><span class="p">)</span>
+            <span class="n">cm</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Powering off...&quot;</span><span class="p">}</span>
+        <span class="c1"># Other cases: do nothing</span>
+        <span class="c1">#if (req_status and cur_status) or (not req_status and not cur_status):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Nothing to do: already at requested state.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Nothing to do.&quot;</span><span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="CoffeeRun"><a class="viewcode-back" href="../../senseo_api.html#senseo_api.__main__.CoffeeRun">[docs]</a><span class="nd">@ns_coffee</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">CoffeeRun</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Start a coffee.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="CoffeeRun.post"><a class="viewcode-back" href="../../senseo_api.html#senseo_api.__main__.CoffeeRun.post">[docs]</a>    <span class="nd">@ns_cm</span><span class="o">.</span><span class="n">response</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;Invalid size&#39;</span><span class="p">)</span>
+    <span class="nd">@ns_cm</span><span class="o">.</span><span class="n">response</span><span class="p">(</span><span class="mi">412</span><span class="p">,</span> <span class="s1">&#39;Precondition failed&#39;</span><span class="p">)</span>
+    <span class="nd">@ns_cm</span><span class="o">.</span><span class="n">response</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;Internal server error&#39;</span><span class="p">)</span>
+    <span class="nd">@ns_cm</span><span class="o">.</span><span class="n">marshal_with</span><span class="p">(</span><span class="n">message_op</span><span class="p">)</span>
+    <span class="nd">@ns_coffee</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="n">coffee_request</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Send command to start coffee according to the requested size.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># default size is 1 cup</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{size}</span><span class="s2"> mug(s) coffee requested.&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cm</span><span class="o">.</span><span class="n">coffee</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">SenseoPreconditionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">abort</span><span class="p">(</span><span class="mi">412</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">SenseoCoffeeSizeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">abort</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">abort</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;Unmanaged server error: {str(e)}&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="n">f</span><span class="s2">&quot;Starting coffee with size: </span><span class="si">{size}</span><span class="s2"> mug(s)&quot;</span><span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../senseo_api.html#senseo_api.__main__.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Execute the Senseo APi.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">cm</span>
+    <span class="n">init_logger</span><span class="p">()</span>
+    <span class="n">cm</span> <span class="o">=</span> <span class="n">SenseoClassic</span><span class="p">(</span><span class="s1">&#39;~/.senseo-api/senseo_config.json&#39;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting the Senseo APi...&quot;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">)</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ludovic Rivallain
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

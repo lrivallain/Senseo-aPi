@@ -1,0 +1,319 @@
+﻿
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Senseo APi &mdash; senseo-aPi 1.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Senseo APi" href="subindex.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> senseo-aPi
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subindex.html">Senseo APi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="subindex.html#installation-proccess">Installation proccess</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="subindex.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="subindex.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="subindex.html#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="subindex.html#id1">Senseo API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="subindex.html#senseo-simulator">Senseo Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="subindex.html#trademark">Trademark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="senseo_api.html">Module reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="senseo_api.html#module-senseo_api.__main__">main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="senseo_api.html#module-senseo_api.pisenseo">pisenseo</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">senseo-aPi</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Senseo APi</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="senseo-api">
+<h1>Senseo APi<a class="headerlink" href="#senseo-api" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://travis-ci.org/lrivallain/Senseo-aPi"><img alt="Build Status" src="https://travis-ci.org/lrivallain/Senseo-aPi.svg?branch=master" /></a>
+<p>This module aims to provide a simple way to manage a Senseo Coffee machine through a Raspberry Pi’s GPIO and a REST API.</p>
+<p>The possible use case is to plug the Senseo machine to a Raspberry Pi µ-computer by using its GPIO and to
+remotely use the REST API to start/stop the machine, and, to start a coffee production.</p>
+<blockquote>
+<div><p><strong>Note:</strong> This setup is mainly for <strong>fun</strong> usage as it does not manage the water or coffee dose filling.</p>
+</div></blockquote>
+<div class="section" id="installation-proccess">
+<h2>Installation proccess<a class="headerlink" href="#installation-proccess" title="Permalink to this headline">¶</a></h2>
+<p>Download sources, unzip, goes to sources-folder.</p>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> using PIP:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install .
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>Prepare configuration files in your home dir:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/.senseo-api
+cp ./logging.json ~/.senseo-api/
+cp ./senseo_config.json ~/.senseo-api/
+</pre></div>
+</div>
+<p>The content of the <code class="docutils literal notranslate"><span class="pre">senseo_config.json</span></code> <strong>must</strong> be customized depending on the GPIO PIN setup you want to use.</p>
+<p>For example:</p>
+<a class="reference external image-reference" href="./docs/_static/pinout_example.png"><img alt="Pinout example" src="./docs/_static/pinout_example.png" /></a>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;1_mug_button&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+  <span class="nt">&quot;2_mug_button&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+  <span class="nt">&quot;led&quot;</span><span class="p">:</span>          <span class="mi">27</span><span class="p">,</span>
+  <span class="nt">&quot;power_button&quot;</span><span class="p">:</span> <span class="mi">4</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Ground</em> is not setup as you can use any of the available <code class="docutils literal notranslate"><span class="pre">GND</span></code> of your GPIO board to plug it.</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">pinout</span></code> command of <code class="docutils literal notranslate"><span class="pre">gpiozero</span></code> (as explained here <a class="reference external" href="https://www.raspberrypi.org/documentation/usage/gpio/">raspberrypi.org</a>) to get the current GPIO PIN numbers:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip install gpiozero
+pinout
+</pre></div>
+</div>
+<p>Or the useful <a class="reference external" href="https://pinout.xyz/#">pinout.xyz</a> web site.</p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Senseo API<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The senseo API use the <code class="docutils literal notranslate"><span class="pre">flask</span></code>/<code class="docutils literal notranslate"><span class="pre">flask_restplus</span></code> module to provide API and Swagger documentation.</p>
+<p>To run the developpement server:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>senseo-api
+</pre></div>
+</div>
+<p>Join the <code class="docutils literal notranslate"><span class="pre">http://&lt;your_IP_address&gt;:5000</span></code> URL to get the swagger interface:</p>
+<a class="reference external image-reference" href="./docs/_static/swaggerui.png"><img alt="Swagger UI" src="./docs/_static/swaggerui.png" /></a>
+</div>
+<div class="section" id="senseo-simulator">
+<h3>Senseo Simulator<a class="headerlink" href="#senseo-simulator" title="Permalink to this headline">¶</a></h3>
+<p>A quick&amp;dirty machine simulator is available in the package with the command <code class="docutils literal notranslate"><span class="pre">senseo-simulator</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>senseo-simulator --help
+Usage: senseo-simulator <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+
+  Execute the Senseo Simulator
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  heat  Simulate a ready coffee machine
+  off   Simulate a power off action
+  on    Simulate a power on action
+  <span class="nb">read</span>  Read the values on the buttons
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Warning:</strong> If you want to use the simulator with <code class="docutils literal notranslate"><span class="pre">read</span></code> commande, run it before the <code class="docutils literal notranslate"><span class="pre">senseo-api</span></code>. If needed to restart it, stop <code class="docutils literal notranslate"><span class="pre">senseo-api</span></code>, run the simulator, start the <code class="docutils literal notranslate"><span class="pre">senseo-api</span></code> again.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="trademark">
+<h2>Trademark<a class="headerlink" href="#trademark" title="Permalink to this headline">¶</a></h2>
+<p><em>Senseo</em> is a registered trademark of <em>Philips</em> and <em>Douwe Egberts</em>.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subindex.html">Senseo APi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="subindex.html#installation-proccess">Installation proccess</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subindex.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subindex.html#trademark">Trademark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="senseo_api.html">Module reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="senseo_api.html#module-senseo_api.__main__">main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="senseo_api.html#module-senseo_api.pisenseo">pisenseo</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="subindex.html" class="btn btn-neutral float-right" title="Senseo APi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ludovic Rivallain
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -4,6 +4,7 @@ from flask_restplus import Api, Resource, fields, abort
 from .pisenseo import SenseoClassic, SenseoPreconditionError, SenseoCoffeeSizeError
 from .utils import init_logger
 
+
 import logging
 logger = logging.getLogger(__name__)
 
@@ -59,12 +60,12 @@ message_op = api.model('Response message regarding the current request', {
 
 @ns_cm.route('/')
 class CoffeeMachine(Resource):
-    """Set and get power status for the coffee machine
+    """Set and get power status for the coffee machine.
     """
 
     @ns_cm.marshal_with(machine_status)
     def get(self):
-        """Get the current status of the coffee machine
+        """Get the current status of the coffee machine.
         """
         logger.info("Current status of coffee machine is requested")
         return {
@@ -75,7 +76,7 @@ class CoffeeMachine(Resource):
     @ns_cm.marshal_with(message_op)
     @ns_cm.expect(machine_power_op)
     def post(self):
-        """Update the power state of the coffee machine
+        """Update the power state of the coffee machine.
         """
         req_status = request.json.get('power_on', True) # default is shutdown command
         cur_status = cm.is_powered_on()
@@ -98,7 +99,7 @@ class CoffeeMachine(Resource):
 
 @ns_coffee.route('/')
 class CoffeeRun(Resource):
-    """Start a coffee
+    """Start a coffee.
     """
 
     @ns_cm.response(400, 'Invalid size')
@@ -123,7 +124,7 @@ class CoffeeRun(Resource):
 
 
 def main():
-    """Execute the API
+    """Execute the Senseo APi.
     """
     global cm
     init_logger()

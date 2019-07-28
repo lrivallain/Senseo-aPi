@@ -35,7 +35,7 @@ The content of the `senseo_config.json` **must** be customized depending on the 
 
 For example:
 
-![Pinout example](./docs/images/pinout_example.png)
+![Pinout example](./docs/_static/pinout_example.png)
 
 ```json
 {
@@ -71,7 +71,7 @@ senseo-api
 
 Join the `http://<your_IP_address>:5000` URL to get the swagger interface:
 
-![Swagger UI](./docs/images/swaggerui.png)
+![Swagger UI](./docs/_static/swaggerui.png)
 
 ### Senseo Simulator
 

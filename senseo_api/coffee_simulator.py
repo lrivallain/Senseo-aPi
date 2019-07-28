@@ -20,7 +20,12 @@ class SenseoClassicSimulator():
     """Define the setup and methods for the Senseo Classic Simulator.
     """
 
-    def __init__(self, config_file):
+    def __init__(self, config_file: str):
+        """Initialize the SenseoClassic simulator.
+
+        Args:
+            config_file (string): Path to the json config file.
+        """
         with open(os.path.expanduser(config_file), "r", encoding="utf-8") as fd:
             self.gpio_setup = json.load(fd)
         # Map GPIO pin configuration for in/out
@@ -45,7 +50,7 @@ class SenseoClassicSimulator():
 @click.group()
 @click.pass_context
 def cli(ctx={}):
-    """Execute the Senseo Simulator
+    """Execute the Senseo Simulator.
     """
     ctx.ensure_object(dict)
     init_logger()
@@ -56,7 +61,7 @@ def cli(ctx={}):
 @cli.command()
 @click.pass_context
 def on(ctx):
-    """Simulate a power on action
+    """Simulate a power on action.
     """
     logger.debug("Coffee Machine is ON and heating")
     while True:
@@ -71,7 +76,7 @@ def on(ctx):
 @cli.command()
 @click.pass_context
 def heat(ctx):
-    """Simulate a ready coffee machine
+    """Simulate a ready coffee machine.
     """
     GPIO.output(ctx.obj['cms'].led, GPIO.HIGH)
     logger.debug("Coffee Machine is ON and Ready")
@@ -83,7 +88,7 @@ def heat(ctx):
 @cli.command()
 @click.pass_context
 def off(ctx):
-    """Simulate a power off action
+    """Simulate a power off action.
     """
     GPIO.output(ctx.obj['cms'].led, GPIO.LOW)
     logger.debug("Coffee Machine is now OFF")
@@ -92,7 +97,7 @@ def off(ctx):
 @cli.command()
 @click.pass_context
 def read(ctx):
-    """Read the values on the buttons
+    """Read the values on the buttons.
     """
     GPIO.output(ctx.obj['cms'].led, GPIO.HIGH)
     logger.debug("Coffee Machine is ON and Ready")
@@ -106,6 +111,8 @@ def read(ctx):
 
 
 def main():
+    """Run the simulator.
+    """
     try:
         cli(obj={})
     except(KeyboardInterrupt, click.Abort):
