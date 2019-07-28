@@ -80,7 +80,7 @@ html_theme = 'sphinx_rtd_theme'
 #
 html_theme_options = {
     'collapse_navigation': False,
-    'sticky_navigation': False,
+    'sticky_navigation': True,
     'navigation_depth': 4,
     'includehidden': True,
     'titles_only': False
@@ -108,7 +108,7 @@ html_theme_options = {
 #
 # New in version 0.4: The image file will be copied to the _static directory
 # of the output HTML, but only if the file does not already exist there.
-html_favicon = "./favicon.png"
+# html_favicon = "./favicon.png"
 
 # If true, “Created using Sphinx” is shown in the HTML footer. Default is True.
 html_show_sphinx = False

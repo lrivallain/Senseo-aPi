@@ -1,9 +1,9 @@
-.. mdinclude:: ../README.md
+.. include:: README.rst
 
 .. toctree::
     :glob:
     :maxdepth: 2
     :caption: Documentation:
 
-    subindex
+    README
     senseo_api

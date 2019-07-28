@@ -18,7 +18,6 @@ setup(
         "RPi.GPIO",       # GPIO interface
         "coloredlogs",    # fancy logs
         "click",          # only for simulator part
-        "m2r"             # sphinx extension for .md documentation
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
