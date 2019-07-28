@@ -5,8 +5,10 @@ python:
   - "3.7"
 install:
   - pip install -e .
+  - pip install Pygments mock sphinx sphinx-rtd-theme recommonmark # just to build docs
   - mkdir -p ~/.senseo-api
   - cp ./logging.json ~/.senseo-api/
   - cp ./senseo_config.json ~/.senseo-api/
 script:
   - which senseo-api # only test if ready to be used
+  - cd docs/ && make html # test making docs
