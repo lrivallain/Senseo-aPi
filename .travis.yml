@@ -6,6 +6,7 @@ python:
 install:
   - pip install -e .
   - pip install Pygments mock sphinx sphinx-rtd-theme recommonmark # just to build docs
+  - pip install -r docs/requirements.txt
   - mkdir -p ~/.senseo-api
   - cp ./logging.json ~/.senseo-api/
   - cp ./senseo_config.json ~/.senseo-api/
