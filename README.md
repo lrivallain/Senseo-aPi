@@ -13,4 +13,4 @@ remotely use the REST API to start/stop the machine, and, to start a coffee prod
 
 ## Documentation
 
-Documentation for this module can be found on [senseo-api.readthedocs.io](https://senseo-api.readthedocs.io/)**.
+**[senseo-api.readthedocs.io](https://senseo-api.readthedocs.io/)**
